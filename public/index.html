@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHA256</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="index.js" ></script>
+</head>
+<body>
+    <header>
+        <h1>SHA256 demo tool</h1>
+    </header>
+    <body>
+        <form id="sha256Form">
+            <label for="inputString">Enter input:</label>
+            <input type="text" id="inputString" name="inputString">
+            <button id="gen" type="submit">Generate hash</button>
+        </form>
+        <textarea title="hash" id="result" placeholder="Your hash is shown here" style="height: 150px;width: 300px; margin: 20px;" ></textarea>
+    </body>
+    <footer>
+        <p>&copy; 2022 SHA256 demo tool. All rights reserved.</p>
+    </footer>
+</body>
+</html>
