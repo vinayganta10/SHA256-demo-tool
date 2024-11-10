@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import {fileURLToPath} from 'url';
 import generateHash from './sha256.js';
+import { encrypt,decrypt } from './AES.js';
 
 const app = express();
 const port = 4000;
@@ -26,10 +27,24 @@ app.get('/',(req,res)=>{
 
 app.post('/',async (req,res)=>{
     let data = req.query;
-    let hash = await generateHash(data);
+    let hash = await generateHash(data.message);
     res.send(hash);
     res.end();
 });
+
+app.post('/encrypt',async (req,res)=>{
+    let data = req.body;
+    let encrypted =  await encrypt(data.message);
+    res.send(encrypted);
+    res.end();
+})
+
+app.post('/decrypt',async (req,res)=>{
+    let data = req.body;
+    let decrypted = await decrypt(data.message);
+    res.send(decrypted);
+    res.end();
+})
 
 
 app.listen(port,()=>{
